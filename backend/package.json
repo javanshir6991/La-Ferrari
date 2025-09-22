@@ -1,0 +1,39 @@
+{
+  "name": "backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A Strapi application",
+  "scripts": {
+    "build": "strapi build",
+    "console": "strapi console",
+    "deploy": "strapi deploy",
+    "dev": "strapi develop",
+    "develop": "strapi develop",
+    "seed:example": "node ./scripts/seed.js",
+    "start": "strapi start",
+    "strapi": "strapi",
+    "upgrade": "npx @strapi/upgrade latest",
+    "upgrade:dry": "npx @strapi/upgrade latest --dry"
+  },
+  "dependencies": {
+    "@strapi/plugin-cloud": "5.23.6",
+    "@strapi/plugin-users-permissions": "5.23.6",
+    "@strapi/strapi": "5.23.6",
+    "better-sqlite3": "11.3.0",
+    "fs-extra": "^10.0.0",
+    "mime-types": "^2.1.27",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.0.0",
+    "styled-components": "^6.0.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0 <=22.x.x",
+    "npm": ">=6.0.0"
+  },
+  "strapi": {
+    "uuid": "112b2c72-cf40-45a2-9f88-c5c472b39da9",
+    "installId": "c833efe6b5931a6f0fff1739124a4571c9f4aaad9386769a6a34ab5a630375f7"
+  }
+}
