@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * category controller
+ * color controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::category.category');
+module.exports = createCoreController('api::color.color');

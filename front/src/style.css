@@ -1,1 +1,37 @@
 @import "tailwindcss";
+
+/* Start https://www.cursors-4u.com */
+* {
+    cursor: url(https://cur.cursors-4u.net/others/oth-6/oth589.cur), auto !important;
+}
+
+/* End https://www.cursors-4u.com */
+
+/* End https://www.cursors-4u.com */
+.swiper {
+    /* ekranın tam eni */
+    height: 800px;
+    /* istədiyin hündürlük */
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* slide içində mərkəzləşdirir */
+}
+
+.swiper-slide img {
+    width: 100%;
+    /* ekran eni ilə tam uyğunlaşsın */
+    height: 800px;
+    /* sabit hündürlük */
+    object-fit: cover;
+    /* slide tam doldurulsun */
+    object-position: center;
+    /* üst-alt bərabər kəsilsin */
+}
+
+.dark {
+    background-color: #111;
+}
