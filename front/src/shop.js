@@ -3,6 +3,7 @@
 const API_URL = "http://localhost:1337/api/products?populate=*";
 
 let products = [];
+let visibleCount = 6;
 let filters = {
     color: null,
     category: null,
@@ -163,47 +164,92 @@ function renderProducts() {
         list.innerHTML = "<div class='text-white text-xl'>No products found.</div>";
         return;
     }
-    filtered.forEach((product, idx) => {
+    // Yalnız visibleCount qədər məhsulu göstər
+    filtered.slice(0, visibleCount).forEach((product, idx) => {
         let pname = product?.title || "No name";
         let imgUrl = product?.image?.url ? "http://localhost:1337" + product.image.url : "";
         let hoverImgUrl = product?.hoverimage?.url ? "http://localhost:1337" + product.hoverimage.url : "";
-        list.innerHTML += `
-            <div class="dark rounded-3xl max-h-max overflow-hidden text-white flex flex-col items-center fade-in" style="animation-delay:${idx * 80}ms;">
+        const card = document.createElement("div");
+        card.className = "dark rounded-3xl max-h-max overflow-hidden text-white flex flex-col items-center fade-in";
+        card.style.animationDelay = `${idx * 80}ms`;
+        card.style.cursor = "pointer";
+        card.innerHTML = `
             ${imgUrl
-                ? `<div class="relative w-full h-90 mb-4 overflow-hidden">
+                ? `<div class=\"relative w-full h-90 mb-4 overflow-hidden\">
         <!-- Normal Image -->
-        <img src="${imgUrl}" 
-             class="absolute inset-0 w-full h-full object-cover transition-all duration-600 ease-in-out opacity-100 hover:opacity-0" 
-             alt="">
+        <img src=\"${imgUrl}\" 
+             class=\"absolute inset-0 w-full h-full object-cover transition-all duration-600 ease-in-out opacity-100 hover:opacity-0\" 
+             alt=\"\">
 
         <!-- Hover Image -->
-        <img src="${hoverImgUrl}" 
-             class="absolute inset-0 w-full h-full object-cover transition-all duration-600 ease-in-out opacity-0 hover:opacity-100 scale-105" 
-             alt="">
+        <img src=\"${hoverImgUrl}\" 
+             class=\"absolute inset-0 w-full h-full object-cover transition-all duration-600 ease-in-out opacity-0 hover:opacity-100 scale-105\" 
+             alt=\"\">
      </div>`
-                : `<div class="w-48 h-48 flex items-center justify-center bg-gray-800 rounded mb-4 text-gray-400">No Image</div>`}
+                : `<div class=\"w-48 h-48 flex items-center justify-center bg-gray-800 rounded mb-4 text-gray-400\">No Image</div>`}
 
-                <h3 class="font-bold border-b border-gray-700 text-xl mb-2">${pname}</h3>
-                <span class="text-yellow-400 text-lg font-semibold mb-2">${product?.price ? formatPrice(product.price) + " $" : ""}</span>
-                <div class="flex gap-2 border-b border-neutral-800 text-sm mb-4">
-                    <span class="text-gray-300 mr-3">${product?.year ? "Year: " + product.year : ""}</span>
-                    <span class="text-gray-300">${product?.KM ? "KM: " + product.KM : ""}</span>
+                <h3 class=\"font-bold border-b border-gray-700 text-xl mb-2\">${pname}</h3>
+                <span class=\"text-yellow-400 text-lg font-semibold mb-2\">${product?.price ? formatPrice(product.price) + " $" : ""}</span>
+                <div class=\"flex gap-2 border-b border-neutral-800 text-sm mb-4\">
+                    <span class=\"text-gray-300 mr-3\">${product?.year ? "Year: " + product.year : ""}</span>
+                    <span class=\"text-gray-300\">${product?.KM ? "KM: " + product.KM : ""}</span>
                 </div>
-
-                <button class="bg-neutral-900 hover:bg-red-600 duration-400 text-white py-3 w-93 mb-4 rounded-full ">
-                    <i class="ri-shopping-cart-line"></i> ADD TO CART
-                </button>
-
-            </div>
+                <button class=\"add-to-cart-btn bg-neutral-900 hover:bg-red-600 duration-400 text-white py-3 w-93 mb-4 rounded-full\" data-id=\"${product.id}\"><i class=\"ri-shopping-cart-line\"></i> ADD TO CART</button>
         `;
+
+
+
+        card.onclick = () => {
+            window.location.href = `shopDetail.html?id=${product.id}`;
+        };
+        // Add to Cart düyməsinə basanda detail pageyə atmaması üçün
+        card.querySelector('.add-to-cart-btn').addEventListener('click', function (e) {
+            e.stopPropagation(); // event propagation dayandırılır
+            // addtocart.js-dəki addToCart funksiyasını çağır
+            if (typeof addToCart === 'function') {
+                const id = product.id;
+                const title = pname;
+                const price = product?.price ? formatPrice(product.price) + " $" : "";
+                const image = imgUrl;
+                addToCart({ id, title, price, image });
+            }
+        });
+        list.appendChild(card);
     });
+
+    // Əgər daha çox məhsul varsa, Load More buttonu məhsul gridinin altında çıxmalıdır
+    let loadMoreBtn = document.getElementById("load-more-products");
+    if (filtered.length > visibleCount) {
+        if (!loadMoreBtn) {
+            loadMoreBtn = document.createElement("button");
+            loadMoreBtn.id = "load-more-products";
+            loadMoreBtn.textContent = "Load More";
+            loadMoreBtn.className = " w-70 text-xl text-yellow-400 rounded-full px-6 py-2  bg-neutral-900 mb-6  hover:scale-105 hover:bg-black duration-800 col-span-full";
+            loadMoreBtn.onclick = () => {
+                visibleCount += 6;
+                renderProducts();
+            };
+            list.appendChild(loadMoreBtn);
+        } else {
+            list.appendChild(loadMoreBtn);
+        }
+        loadMoreBtn.style.display = "block";
+    } else if (loadMoreBtn) {
+        loadMoreBtn.style.display = "none";
+    }
 }
 
 // Price, year, KM filter event listeners
 
 document.addEventListener("DOMContentLoaded", () => {
+    // URL səhvdirsə error page-ə yönləndir
+    if (!window.location.pathname.endsWith('shop.html')) {
+        window.location.href = 'error.html';
+        return;
+    }
     fetchFilters();
     fetchProducts();
+    visibleCount = 6;
     ["filter-price-min", "filter-price-max", "filter-year-min", "filter-year-max", "filter-km-min", "filter-km-max"].forEach(id => {
         const el = document.getElementById(id);
         if (el) {
