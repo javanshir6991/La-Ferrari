@@ -66,6 +66,9 @@
       "relation": "manyToOne",
       "target": "api::color.color",
       "inversedBy": "products"
+    },
+    "KM": {
+      "type": "biginteger"
     }
   }
 }
