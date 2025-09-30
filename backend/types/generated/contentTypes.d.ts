@@ -521,6 +521,37 @@ export interface ApiColorColor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCommentComment extends Struct.CollectionTypeSchema {
+  collectionName: 'comments';
+  info: {
+    displayName: 'comment';
+    pluralName: 'comments';
+    singularName: 'comment';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Author: Schema.Attribute.String;
+    comment: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::comment.comment'
+    > &
+      Schema.Attribute.Private;
+    mail: Schema.Attribute.Email;
+    products: Schema.Attribute.Relation<'manyToMany', 'api::product.product'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
@@ -539,6 +570,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     brand: Schema.Attribute.Relation<'manyToOne', 'api::brand.brand'>;
     category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
     color: Schema.Attribute.Relation<'manyToOne', 'api::color.color'>;
+    comments: Schema.Attribute.Relation<'manyToMany', 'api::comment.comment'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1081,6 +1113,7 @@ declare module '@strapi/strapi' {
       'api::brand.brand': ApiBrandBrand;
       'api::category.category': ApiCategoryCategory;
       'api::color.color': ApiColorColor;
+      'api::comment.comment': ApiCommentComment;
       'api::product.product': ApiProductProduct;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

@@ -37,23 +37,27 @@
                 <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
                     href="./index.html">HOME</a>
                 <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
-                    href="">SHOP</a>
+                    href="./shop.html">SHOP</a>
                 <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
-                    href="">FEATURED</a>
+                    href="">CONTACT</a>
                 <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
-                    href="">LAYOUTS</a>
+                    href="">SERVICES</a>
                 <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
-                    href="">PAGES</a>
+                    href="">GALLERY</a>
+                <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+                    href="">ABOUT</a>
+
             </div>
 
             <div class="buttons text-white text-2xl flex items-center gap-7">
                 <button id="search-toggle" class="hover:text-yellow-400 hover:scale-120 duration-300"><i
                         class="ri-search-line"></i></button>
                 <!-- Search Bar (hidden by default, moved outside button group) -->
-                <div id="search-bar-container" class="fixed top-10 left-1/2 shadow-2xl transform -translate-x-1/2 z-50"
+                <div id="search-bar-container"
+                    class="fixed top-10 left-1/2 shadow-2xl fade-in transform -translate-x-1/2 z-50"
                     style="display:none;">
                     <div
-                        class="bg-neutral-900 border-2 border-neutral-400 rounded-full shadow-2xl flex items-center px-6 py-2 w-80">
+                        class="bg-neutral-900 border-3 border-neutral-400 rounded-full shadow-2xl flex items-center px-6 py-2 w-200">
                         <input id="search-input" type="text" placeholder="Search products..."
                             class="bg-transparent text-white w-full px-2 py-1 focus:outline-none" />
                         <button id="search-close" class="ml-2 text-gray-400 hover:text-red-500"><i
@@ -64,7 +68,7 @@
                         style="display:none;"></div>
                 </div>
                 <button class="hover:text-yellow-400 hover:scale-120 duration-300"><i
-                        class="ri-layout-masonry-fill"></i></button>
+                        class="ri-map-pin-user-fill"></i></button>
                 <button class="hover:text-yellow-400 hover:scale-120 duration-300"><i
                         class="ri-earth-line"></i></button>
                 <button id="cart-toggle" class="hover:text-yellow-400 hover:scale-120 duration-300"><i
@@ -244,6 +248,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="./src/shop.js"></script>
     <script src="./src/addtocart.js"></script>
+    <script src="./src/searchbarlogic.js"></script>
 </body>
 
 </html>

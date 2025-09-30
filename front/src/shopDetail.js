@@ -72,8 +72,54 @@ document.addEventListener("DOMContentLoaded", async () => {
                         </div>
                 </div>
             </div>
+<div class="flex justify-start gap-10 fade-in">
+<div id="comments-section" class="mt-25 border-t border-neutral-700 pt-9 justify-items-start max-w-xl ">
+  <h2 class="text-2xl text-white font-bold mb-4">Reviews</h2>
+
+
+  <!-- Yeni şərh formu -->
+  <form id="comment-form" class="space-y-3 bg-neutral-900 p-4 rounded">
+    <input 
+      type="text" 
+      id="author" 
+      placeholder="Username" 
+      class="border border-white text-white p-2 w-full rounded"
+      required
+    >
+    <input 
+      type="email" 
+      id="mail" 
+      placeholder="Mail" 
+      class="border border-white text-white p-2 w-full rounded"
+      required
+    >
+    <textarea 
+      id="comment" 
+      placeholder="Comment" 
+      class="border border-white text-white p-2 w-full rounded"
+      required
+    ></textarea>
+    <button 
+      type="submit" 
+      class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-800 duration-300"
+    >
+        Add Comment
+    </button>
+  </form>
+</div>
+
+  <!-- Şərhlərin listi -->
+  <div id="comments-list" class="space-x-3 flex flex-wrap max-h-max  ml-45 mt-47"></div>
+
+</div>
+
+            
+
+
+
+
         `;
-        // JS ilə altdakı şəkillərə klik event əlavə et
+        // JS ilə altdakı şəkillərə klik event və comment sistemi əlavə et
         setTimeout(() => {
             // Add to Cart düyməsi üçün event
             const addBtn = document.getElementById('add-to-cart-detail');
@@ -113,6 +159,93 @@ document.addEventListener("DOMContentLoaded", async () => {
                     }
                 });
             });
+            // COMMENT SISTEMI
+            const API_URL_COMMENTS = "http://localhost:1337/api/comments";
+            const productIdForComment = product.id;
+
+            // Şərhləri yükləmək
+            async function loadComments() {
+                try {
+                    const res = await fetch(
+                        `${API_URL_COMMENTS}?filters[products][id][$eq]=${productIdForComment}&populate=*`
+                    );
+
+                    const data = await res.json();
+                    console.log("Strapi-dən gələn comment data:", data);
+
+                    const list = document.getElementById("comments-list");
+                    if (!list) return;
+                    list.innerHTML = "";
+
+                    if (!data.data || data.data.length === 0) {
+                        list.innerHTML = `<p class="text-gray-500">No comments yet.</p>`;
+                        return;
+                    }
+                    data.data.forEach((c) => {
+                        if (!c) return;
+                        const div = document.createElement("div");
+                        div.className = "p-4 mb-4  rounded-2xl shadow-lg border border-gray-400 opacity-0 translate-y-3 transition-all duration-500 ease-out";
+                        div.innerHTML = `
+    <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold">
+            ${c.Author ? c.Author[0].toUpperCase() : "A"}
+        </div>
+        <div>
+            <p class="text-lg font-semibold text-white">${c.Author || "Anonim"}</p>
+            <p class="text-sm text-gray-500">${c.mail || ""}</p>
+        </div>
+    </div>
+    <p class="mt-3 text-white border-t border-neutral-800 pt-2 leading-relaxed">${c.comment || ""}</p>
+`;
+                        list.appendChild(div);
+                        setTimeout(() => {
+                            div.classList.remove("opacity-0", "translate-y-3");
+                        }, 50);
+                    });
+                } catch (err) {
+                    console.error("Şərhlər yüklənmədi:", err);
+                }
+            }
+
+            // Commentləri həmişə göstər
+            loadComments();
+
+            // Yeni şərh göndərmək
+            const commentForm = document.getElementById("comment-form");
+            if (commentForm) {
+                commentForm.addEventListener("submit", async (e) => {
+                    e.preventDefault();
+                    const author = document.getElementById("author").value.trim();
+                    const mail = document.getElementById("mail").value.trim();
+                    const comment = document.getElementById("comment").value.trim();
+                    if (!author || !mail || !comment) {
+                        alert("Bütün xanaları doldurun!");
+                        return;
+                    }
+                    try {
+                        await fetch(API_URL_COMMENTS, {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                                data: {
+                                    Author: author,
+                                    mail: mail,
+                                    comment: comment,
+                                    products: [productIdForComment], // ⚡ Array formatda
+                                    publishedAt: new Date().toISOString() // ⚡ dərhal görünməsi üçün
+                                }
+                            })
+                        });
+                        e.target.reset();
+                        // Comment göndəriləndən sonra dərhal yenilə
+                        loadComments();
+                    } catch (err) {
+                        console.error("Şərh göndərilmədi:", err);
+                    }
+                });
+            }
+
+
         }, 100);
     } catch (err) {
         document.querySelector("main").innerHTML = '<div class="text-red-400 text-2xl">Error loading product.</div>';

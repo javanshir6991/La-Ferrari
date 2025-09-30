@@ -79,6 +79,12 @@
         "videos",
         "audios"
       ]
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "products"
     }
   }
 }
