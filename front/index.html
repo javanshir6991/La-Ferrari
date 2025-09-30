@@ -41,21 +41,46 @@
       </div>
 
       <div class="hrefs flex items-center gap-10">
-        <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300" href="">HOME</a>
-        <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300" href="">SHOP</a>
         <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
-          href="">FEATURED</a>
+          href="./index.html">HOME</a>
         <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
-          href="">LAYOUTS</a>
-        <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300" href="">PAGES</a>
+          href="./shop.html">SHOP</a>
+        <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+          href="./contact.html">CONTACT</a>
+        <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+          href="./service.html">SERVICES</a>
+        <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+          href="./gallery.html">GALLERY</a>
+        <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+          href="./about.html">ABOUT</a>
+
       </div>
 
       <div class="buttons text-white text-2xl flex items-center gap-7">
-        <button class="hover:text-yellow-400 hover:scale-120 duration-300"><i class="ri-search-line"></i></button>
-        <button class="hover:text-yellow-400 hover:scale-120 duration-300"><i
-            class="ri-layout-masonry-fill"></i></button>
+        <!-- Search Icon (toggle) -->
+        <button id="search-toggle" class="hover:text-yellow-400 hover:scale-120 duration-300">
+          <i class="ri-search-line "></i>
+        </button>
+
+        <!-- Search Bar -->
+        <div id="search-bar-container"
+          class="absolute top-233 left-142 border-3 border-gray-400 w-200 h-20 rounded bg-neutral-900  shadow-lg overflow-hidden flex items-center px-5 py-2 transform scale-y-0 origin-top transition-transform duration-300">
+          <input type="text" id="search-input" placeholder="Search products..."
+            class="flex-1 bg-transparent text-white placeholder-gray-400 focus:outline-none" />
+          <button id="search-close" class="ml-2 text-white hover:text-red-500 duration-300 transition-colors">
+            <i class="ri-close-line text-4xl"></i>
+          </button>
+        </div>
+
+        <!-- Search Results -->
+        <div id="search-results"
+          class="absolute top-179 left-142 w-200 bg-neutral-800 rounded-b-xl shadow-lg hidden max-h-80 overflow-y-auto">
+        </div>
+
+        <button class="hover:text-yellow-400 hover:scale-120 duration-300"><i class="ri-map-pin-user-fill"></i></button>
         <button class="hover:text-yellow-400 hover:scale-120 duration-300"><i class="ri-earth-line"></i></button>
-        <button class="hover:text-yellow-400 hover:scale-120 duration-300"><i class="ri-shopping-bag-line"></i></button>
+        <button id="cart-toggle" class="hover:text-yellow-400 hover:scale-120 duration-300"><i
+            class="ri-shopping-bag-line"></i></button>
       </div>
 
     </div>
@@ -170,8 +195,12 @@
       <div class="text-white flex items-center justify-center">
 
         <i class="ri-arrow-right-double-fill text-3xl mx-5"></i>
-        <h1 class=" text-4xl ">FEATURED PRODUCTS</h1>
+        <h1 class=" text-4xl ">NEW ARRIVALS</h1>
         <i class="ri-arrow-left-double-fill text-3xl mx-5"></i>
+      </div>
+
+      <div id="products-section2" class="flex-1 mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
       </div>
 
     </section>
@@ -221,6 +250,9 @@
         <i class="ri-arrow-right-double-fill text-3xl mx-5"></i>
         <h1 class=" text-4xl ">FEATURED PRODUCTS</h1>
         <i class="ri-arrow-left-double-fill text-3xl mx-5"></i>
+      </div>
+      <div id="products-section" class="flex-1 mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
       </div>
 
     </section>
@@ -599,6 +631,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
   <script src="./src/main.js"></script>
+  <script src="./src/seacrhbarlogicformain.js"></script>
 </body>
 
 </html>

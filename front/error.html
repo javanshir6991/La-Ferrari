@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - La-Ferrari</title>
+    <link rel="stylesheet" href="./src/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+            font-family: 'SUSE Mono', monospace;
+        }
+
+        .center {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .error-icon {
+            font-size: 6rem;
+            color: #ff4c4c;
+            margin-bottom: 2rem;
+        }
+
+        .error-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .error-desc {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+
+        .back-btn {
+            background: #ff4c4c;
+            color: #fff;
+            padding: 0.7rem 2rem;
+            border-radius: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .back-btn:hover {
+            background: #ff1a1a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <i class="ri-error-warning-line error-icon"></i>
+        <div class="error-title">404 - Səhifə tapılmadı</div>
+        <div class="error-desc">Daxil etdiyiniz URL səhvdir və ya belə bir səhifə mövcud deyil.</div>
+        <button class="back-btn" onclick="window.location.href='index.html'">Ana səhifəyə qayıt</button>
+    </div>
+</body>
+
+</html>

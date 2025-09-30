@@ -66,6 +66,25 @@
       "relation": "manyToOne",
       "target": "api::color.color",
       "inversedBy": "products"
+    },
+    "KM": {
+      "type": "biginteger"
+    },
+    "interiorimage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "products"
     }
   }
 }

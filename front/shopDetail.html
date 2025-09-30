@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La-Ferrari/Shop</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="./src/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-black">
+    <!-- Cart notification -->
+    <div id="cart-notification"
+        class="fixed top-8 right-2 transform -translate-x-1/2 bg-green-600 text-white px-8 py-4 rounded-xl shadow-lg z-50 text-xl font-bold opacity-0 pointer-events-none transition-all duration-500">
+        Product added successfully!</div>
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar"
+        class="fixed top-0 right-0 h-full w-96 bg-neutral-900 shadow-2xl z-50 text-white p-8 transition-transform duration-500"
+        style="transform: translateX(100%);">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold">My Cart</h2>
+            <button id="cart-close" class="text-2xl text-gray-400 hover:text-red-500"><i
+                    class="ri-close-line"></i></button>
+        </div>
+        <div id="cart-items" class="flex flex-col gap-4"></div>
+        <div id="cart-empty" class="text-gray-400 mt-10">Cart is empty.</div>
+    </div>
+    <header>
+        <div style="font-family: 'SUSE Mono', monospace;" class="relative">
+            <img class="w-full h-[500px] object-cover"
+                src="https://images.hdqwalls.com/download/mclaren-p1-gtr-4k-sc-1920x1080.jpg" alt="">
+            <h1 class="absolute text-white text-6xl font-bold top-11 left-203 fade-in">PRODUCTS</h1>
+            <p class="absolute text-gray-300 text-xl top-28 left-222 fade-in">Home / Shop</p>
+        </div>
+
+        <div class="dark px-15 py-5 flex items-center justify-between" style="font-family: 'SUSE Mono', monospace;">
+            <div class="flex items-center">
+                <h1 class="text-yellow-400 font-bold text-4xl">La</h1>
+                <h1 class="text-red-600 font-bold text-4xl">Ferrari</h1>
+            </div>
+
+            <div class="hrefs flex items-center gap-10">
+                <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+                    href="./index.html">HOME</a>
+                <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+                    href="./shop.html">SHOP</a>
+                <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+                    href="./contact.html">CONTACT</a>
+                <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+                    href="./service.html">SERVICES</a>
+                <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+                    href="./gallery.html">GALLERY</a>
+                <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+                    href="./about.html">ABOUT</a>
+
+            </div>
+
+            <div class="buttons text-white text-2xl flex items-center gap-7">
+                <button id="search-toggle" class="hover:text-yellow-400 hover:scale-120 duration-300"><i
+                        class="ri-search-line"></i></button>
+                <!-- Search Bar (hidden by default, moved outside button group) -->
+                <div id="search-bar-container" class="fixed top-10 left-1/2 shadow-2xl transform -translate-x-1/2 z-50"
+                    style="display:none;">
+                    <div
+                        class="bg-neutral-900 border-3 border-neutral-400 rounded-full shadow-2xl flex items-center px-6 py-2 w-200">
+                        <input id="search-input" type="text" placeholder="Search products..."
+                            class="bg-transparent text-white w-full px-2 py-1 focus:outline-none" />
+                        <button id="search-close" class="ml-2 text-gray-400 hover:text-red-500"><i
+                                class="ri-close-line"></i></button>
+                    </div>
+                    <div id="search-results"
+                        class="bg-neutral-900 rounded-xl mt-2 shadow-lg max-h-80 overflow-y-auto text-white"
+                        style="display:none;"></div>
+                </div>
+                <button class="hover:text-yellow-400 hover:scale-120 duration-300"><i
+                        class="ri-map-pin-user-fill"></i></button>
+                <button class="hover:text-yellow-400 hover:scale-120 duration-300"><i
+                        class="ri-earth-line"></i></button>
+                <button id="cart-toggle" class="hover:text-yellow-400 hover:scale-120 duration-300"><i
+                        class="ri-shopping-bag-line"></i></button>
+            </div>
+
+        </div>
+    </header>
+
+
+
+    <main class=" px-35 py-20" style="font-family: 'SUSE Mono', monospace;">
+
+
+
+        <h1 class="text-white text-center text-4xl mt-45">LOADING</h1>
+        <p class="text-gray-400 text-center mt-2">Please wait while we load the content...</p>
+
+    </main>
+
+    <footer style="font-family: 'SUSE Mono', monospace;" class="dark border-t border-yellow-400 mt-35 p-35 pb-20">
+
+        <div class="flex justify-between ">
+            <!-- Logo və info -->
+            <div>
+                <h2 class="text-4xl font-bold text-yellow-400 mb-7">La<span class="text-red-600">Ferrari</span></h2>
+                <p class="text-gray-400 mb-9 max-w-xl">We are team of designers and developers who creates high
+                    quality
+                    premium themes.</p>
+                <ul class="space-y-2 text-gray-300">
+                    <li class="flex items-center gap-2">
+                        <i class="ri-map-pin-line text-red-500 text-xl"></i>
+                        <span>Address : <span class="font-semibold text-white">No 40 Baria Sreet 133/2, NewYork,
+                                USA.</span></span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="ri-phone-line text-red-500 text-xl"></i>
+                        <span>Phone : <span class="font-semibold text-white">(012) 800 456 789</span></span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="ri-mail-line text-red-500 text-xl"></i>
+                        <span>Email : <span class="font-semibold text-white">support@masstechnologist</span></span>
+                    </li>
+                </ul>
+            </div>
+            <!-- Main Menu -->
+            <div class="border-l border-gray-700 pl-5">
+                <h3 class="text-white font-bold text-lg mb-6">MAIN MENU</h3>
+                <ul class="space-y-5 text-gray-400">
+                    <li><a href="#" class="hover:text-white">Home</a></li>
+                    <li><a href="#" class="hover:text-white">Shop</a></li>
+                    <li><a href="#" class="hover:text-white">Featured</a></li>
+                    <li><a href="#" class="hover:text-white">Layouts</a></li>
+                    <li><a href="#" class="hover:text-white">Pages</a></li>
+                </ul>
+            </div>
+            <!-- About Us -->
+            <div class="border-l border-gray-700 pl-5">
+                <h3 class="text-white font-bold text-lg mb-6">ABOUT US</h3>
+                <ul class="space-y-5 text-gray-400">
+                    <li><a href="#" class="hover:text-white">Contact US</a></li>
+                    <li><a href="#" class="hover:text-white">Refund Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Shipping Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Terms Of Service</a></li>
+                </ul>
+            </div>
+            <!-- Need Help -->
+            <div class="border-l border-gray-700 pl-5">
+                <h3 class="text-white font-bold text-lg mb-6">NEED HELP</h3>
+                <ul class="space-y-5 text-gray-400">
+                    <li><a href="#" class="hover:text-white">Search</a></li>
+                    <li><a href="#" class="hover:text-white">About Us</a></li>
+                    <li><a href="#" class="hover:text-white">FAQs</a></li>
+                    <li><a href="#" class="hover:text-white">Our Blog</a></li>
+                    <li><a href="#" class="hover:text-white">Services</a></li>
+                </ul>
+            </div>
+            <!-- About Us (2-ci sütun) -->
+            <div class="border-l border-gray-700 pl-5">
+                <h3 class="text-white font-bold text-lg mb-6">ABOUT US</h3>
+                <ul class="space-y-5 text-gray-400">
+                    <li><a href="#" class="hover:text-white">Contact US</a></li>
+                    <li><a href="#" class="hover:text-white">Refund Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Shipping Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Terms Of Service</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright və sosial media -->
+        <div class="flex flex-wrap justify-between items-center mt-14 border-t border-gray-700 pt-14">
+            <span class="text-gray-400 text-lg">Copyright © 2024 <span
+                    class="text-red-500">MassTechnologist.Com.</span></span>
+            <div class="flex items-center gap-6">
+                <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="ri-facebook-fill"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="ri-twitter-fill"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="ri-pinterest-fill"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="ri-google-fill"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="ri-instagram-line"></i></a>
+            </div>
+            <div class="flex items-center gap-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-7">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-7">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-7">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-7">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-7">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-7">
+
+            </div>
+        </div>
+
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="./src/addtocart.js"></script>
+    <script src="./src/cartDetail.js"></script>
+    <script src="./src/shopDetail.js"></script>
+</body>
+
+</html>
