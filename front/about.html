@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La-Ferrari</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="./src/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-black">
+    <header>
+        <div style="font-family: 'SUSE Mono', monospace;" class="relative">
+            <img class="w-full h-[500px] object-cover"
+                src="https://images.hdqwalls.com/download/mclaren-p1-gtr-4k-sc-1920x1080.jpg" alt="">
+            <h1 class="absolute text-white text-6xl font-bold top-11 left-210 fade-in">About-Us</h1>
+            <p class="absolute text-gray-300 text-xl top-28 left-222 fade-in">Home / About Us</p>
+        </div>
+
+        <div class="dark px-15 py-5 flex items-center justify-between" style="font-family: 'SUSE Mono', monospace;">
+            <div class="flex items-center">
+                <h1 class="text-yellow-400 font-bold text-4xl">La</h1>
+                <h1 class="text-red-600 font-bold text-4xl">Ferrari</h1>
+            </div>
+
+            <div class="hrefs flex items-center gap-10">
+                <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+                    href="./index.html">HOME</a>
+                <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+                    href="./shop.html">SHOP</a>
+                <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+                    href="./contact.html">CONTACT</a>
+                <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+                    href="./service.html">SERVICES</a>
+                <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+                    href="./gallery.html">GALLERY</a>
+                <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+                    href="./about.html">ABOUT</a>
+
+            </div>
+
+            <div class="buttons text-white text-2xl flex items-center gap-7">
+                <!-- Search Icon (toggle) -->
+                <button id="search-toggle" class="hover:text-yellow-400 hover:scale-120 duration-300">
+                    <i class="ri-search-line "></i>
+                </button>
+
+                <!-- Search Bar -->
+                <div id="search-bar-container"
+                    class="absolute z-10 top-150 left-142 border-3 border-gray-400 w-200 h-20 rounded bg-neutral-900  shadow-lg overflow-hidden flex items-center px-5 py-2 transform scale-y-0 origin-top transition-transform duration-300">
+                    <input type="text" id="search-input" placeholder="Search products..."
+                        class="flex-1 bg-transparent text-white placeholder-gray-400 focus:outline-none" />
+                    <button id="search-close" class="ml-2 text-white hover:text-red-500 duration-300 transition-colors">
+                        <i class="ri-close-line text-4xl"></i>
+                    </button>
+                </div>
+
+                <!-- Search Results -->
+                <div id="search-results"
+                    class="absolute top-171 z-10 left-142 w-200 bg-neutral-800 rounded-b-xl shadow-lg hidden max-h-80 overflow-y-auto">
+                </div>
+
+                <button class="hover:text-yellow-400 hover:scale-120 duration-300"><i
+                        class="ri-map-pin-user-fill"></i></button>
+                <button class="hover:text-yellow-400 hover:scale-120 duration-300"><i
+                        class="ri-earth-line"></i></button>
+                <button id="cart-toggle" class="hover:text-yellow-400 hover:scale-120 duration-300"><i
+                        class="ri-shopping-bag-line"></i></button>
+            </div>
+
+        </div>
+    </header>
+
+    <main style="font-family: 'Zalando Sans Expanded', sans-serif;">
+
+        <!-- President Section -->
+        <section class="py-16 bg-neutral-200 shadow-md">
+            <div class="container mx-auto px-6 text-center">
+                <div class="flex flex-col items-center animate-down">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="President"
+                        class="w-40 h-40 object-cover rounded-full shadow-lg mb-4">
+                    <h3 class="text-2xl font-semibold">David Johnson</h3>
+                    <p class="text-gray-500 mb-4">President & Founder</p>
+                    <p class="max-w-xl text-gray-600">
+                        Our mission is to deliver the highest quality services and provide innovative
+                        solutions to our clients. Every day, our dedicated team works together
+                        to achieve excellence and create lasting impact.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Employees Section -->
+        <section class="py-16">
+            <div class="container mx-auto px-6">
+                <h2 class="text-2xl text-yellow-400 font-bold text-center mb-12">Our Team</h2>
+                <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
+                    <!-- Employee 1 -->
+                    <div class="bg-white rounded-lg shadow-md p-6 text-center animate-left"
+                        style="animation-delay:0.2s;">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Employee"
+                            class="w-28 h-28 mx-auto rounded-full mb-4 object-cover shadow">
+                        <h3 class="text-lg font-semibold">Emily Davis</h3>
+                        <p class="text-gray-500">Marketing Manager</p>
+                    </div>
+
+                    <!-- Employee 2 -->
+                    <div class="bg-white rounded-lg shadow-md p-6 text-center animate-up" style="animation-delay:0.4s;">
+                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Employee"
+                            class="w-28 h-28 mx-auto rounded-full mb-4 object-cover shadow">
+                        <h3 class="text-lg font-semibold">Michael Brown</h3>
+                        <p class="text-gray-500">Software Engineer</p>
+                    </div>
+
+                    <!-- Employee 3 -->
+                    <div class="bg-white rounded-lg shadow-md p-6 text-center animate-right"
+                        style="animation-delay:0.6s;">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Employee"
+                            class="w-28 h-28 mx-auto rounded-full mb-4 object-cover shadow">
+                        <h3 class="text-lg font-semibold">Sophia Wilson</h3>
+                        <p class="text-gray-500">UI/UX Designer</p>
+                    </div>
+
+                    <!-- Employee 4 -->
+                    <div class="bg-white rounded-lg shadow-md p-6 text-center animate-rotate"
+                        style="animation-delay:0.8s;">
+                        <img src="https://randomuser.me/api/portraits/men/56.jpg" alt="Employee"
+                            class="w-28 h-28 mx-auto rounded-full mb-4 object-cover shadow">
+                        <h3 class="text-lg font-semibold">James Miller</h3>
+                        <p class="text-gray-500">Sales Representative</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <footer style="font-family: 'SUSE Mono', monospace;" class="dark border-t border-yellow-400 mt-35 p-35 pb-20">
+
+        <div class="flex justify-between ">
+            <!-- Logo və info -->
+            <div>
+                <h2 class="text-4xl font-bold text-yellow-400 mb-7">La<span class="text-red-600">Ferrari</span></h2>
+                <p class="text-gray-400 mb-9 max-w-xl">We are team of designers and developers who creates high quality
+                    premium themes.</p>
+                <ul class="space-y-2 text-gray-300">
+                    <li class="flex items-center gap-2">
+                        <i class="ri-map-pin-line text-red-500 text-xl"></i>
+                        <span>Address : <span class="font-semibold text-white">No 40 Baria Sreet 133/2, NewYork,
+                                USA.</span></span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="ri-phone-line text-red-500 text-xl"></i>
+                        <span>Phone : <span class="font-semibold text-white">(012) 800 456 789</span></span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="ri-mail-line text-red-500 text-xl"></i>
+                        <span>Email : <span class="font-semibold text-white">support@masstechnologist</span></span>
+                    </li>
+                </ul>
+            </div>
+            <!-- Main Menu -->
+            <div class="border-l border-gray-700 pl-5">
+                <h3 class="text-white font-bold text-lg mb-6">MAIN MENU</h3>
+                <ul class="space-y-5 text-gray-400">
+                    <li><a href="#" class="hover:text-white">Home</a></li>
+                    <li><a href="#" class="hover:text-white">Shop</a></li>
+                    <li><a href="#" class="hover:text-white">Featured</a></li>
+                    <li><a href="#" class="hover:text-white">Layouts</a></li>
+                    <li><a href="#" class="hover:text-white">Pages</a></li>
+                </ul>
+            </div>
+            <!-- About Us -->
+            <div class="border-l border-gray-700 pl-5">
+                <h3 class="text-white font-bold text-lg mb-6">ABOUT US</h3>
+                <ul class="space-y-5 text-gray-400">
+                    <li><a href="#" class="hover:text-white">Contact US</a></li>
+                    <li><a href="#" class="hover:text-white">Refund Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Shipping Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Terms Of Service</a></li>
+                </ul>
+            </div>
+            <!-- Need Help -->
+            <div class="border-l border-gray-700 pl-5">
+                <h3 class="text-white font-bold text-lg mb-6">NEED HELP</h3>
+                <ul class="space-y-5 text-gray-400">
+                    <li><a href="#" class="hover:text-white">Search</a></li>
+                    <li><a href="#" class="hover:text-white">About Us</a></li>
+                    <li><a href="#" class="hover:text-white">FAQs</a></li>
+                    <li><a href="#" class="hover:text-white">Our Blog</a></li>
+                    <li><a href="#" class="hover:text-white">Services</a></li>
+                </ul>
+            </div>
+            <!-- About Us (2-ci sütun) -->
+            <div class="border-l border-gray-700 pl-5">
+                <h3 class="text-white font-bold text-lg mb-6">ABOUT US</h3>
+                <ul class="space-y-5 text-gray-400">
+                    <li><a href="#" class="hover:text-white">Contact US</a></li>
+                    <li><a href="#" class="hover:text-white">Refund Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Shipping Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Terms Of Service</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright və sosial media -->
+        <div class="flex flex-wrap justify-between items-center mt-14 border-t border-gray-700 pt-14">
+            <span class="text-gray-400 text-lg">Copyright © 2024 <span
+                    class="text-red-500">MassTechnologist.Com.</span></span>
+            <div class="flex items-center gap-6">
+                <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="ri-facebook-fill"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="ri-twitter-fill"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="ri-pinterest-fill"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="ri-google-fill"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="ri-instagram-line"></i></a>
+            </div>
+            <div class="flex items-center gap-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-7">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-7">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-7">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-7">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-7">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-7">
+
+            </div>
+        </div>
+
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="./src/main.js"></script>
+    <script src="./src/seacrhbarlogicformain.js"></script>
+</body>
+
+</html>
