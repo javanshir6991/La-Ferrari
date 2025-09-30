@@ -1,24 +1,24 @@
 {
   "kind": "collectionType",
-  "collectionName": "categories",
+  "collectionName": "colors",
   "info": {
-    "singularName": "category",
-    "pluralName": "categories",
-    "displayName": "category"
+    "singularName": "color",
+    "pluralName": "colors",
+    "displayName": "color"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "categoryname": {
+    "colorname": {
       "type": "string"
     },
     "products": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product.product",
-      "mappedBy": "category"
+      "mappedBy": "color"
     }
   }
 }
