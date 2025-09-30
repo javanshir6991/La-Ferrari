@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La-Ferrari/Shop</title>
+    <title>La-Ferrari</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/style.css">
@@ -12,31 +12,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap"
         rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="bg-black">
-    <!-- Cart notification -->
-    <div id="cart-notification"
-        class="fixed top-8 right-2 transform -translate-x-1/2 bg-green-600 text-white px-8 py-4 rounded-xl shadow-lg z-50 text-xl font-bold opacity-0 pointer-events-none transition-all duration-500">
-        Product added successfully!</div>
-    <!-- Cart Sidebar -->
-    <div id="cart-sidebar"
-        class="fixed top-0 right-0 h-full w-96 bg-neutral-900 shadow-2xl z-50 text-white p-8 transition-transform duration-500"
-        style="transform: translateX(100%);">
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="text-2xl font-bold">My Cart</h2>
-            <button id="cart-close" class="text-2xl text-gray-400 hover:text-red-500"><i
-                    class="ri-close-line"></i></button>
-        </div>
-        <div id="cart-items" class="flex flex-col gap-4"></div>
-        <div id="cart-empty" class="text-gray-400 mt-10">Cart is empty.</div>
-    </div>
     <header>
         <div style="font-family: 'SUSE Mono', monospace;" class="relative">
             <img class="w-full h-[500px] object-cover"
                 src="https://images.hdqwalls.com/download/mclaren-p1-gtr-4k-sc-1920x1080.jpg" alt="">
-            <h1 class="absolute text-white text-6xl font-bold top-11 left-203 fade-in">PRODUCTS</h1>
-            <p class="absolute text-gray-300 text-xl top-28 left-222 fade-in">Home / Shop</p>
+            <h1 class="absolute text-white text-6xl font-bold top-11 left-210 fade-in">GALLERY</h1>
+            <p class="absolute text-gray-300 text-xl top-28 left-222 fade-in">Home / Gallery</p>
         </div>
 
         <div class="dark px-15 py-5 flex items-center justify-between" style="font-family: 'SUSE Mono', monospace;">
@@ -62,22 +51,26 @@
             </div>
 
             <div class="buttons text-white text-2xl flex items-center gap-7">
-                <button id="search-toggle" class="hover:text-yellow-400 hover:scale-120 duration-300"><i
-                        class="ri-search-line"></i></button>
-                <!-- Search Bar (hidden by default, moved outside button group) -->
-                <div id="search-bar-container" class="fixed top-10 left-1/2 shadow-2xl transform -translate-x-1/2 z-50"
-                    style="display:none;">
-                    <div
-                        class="bg-neutral-900 border-3 border-neutral-400 rounded-full shadow-2xl flex items-center px-6 py-2 w-200">
-                        <input id="search-input" type="text" placeholder="Search products..."
-                            class="bg-transparent text-white w-full px-2 py-1 focus:outline-none" />
-                        <button id="search-close" class="ml-2 text-gray-400 hover:text-red-500"><i
-                                class="ri-close-line"></i></button>
-                    </div>
-                    <div id="search-results"
-                        class="bg-neutral-900 rounded-xl mt-2 shadow-lg max-h-80 overflow-y-auto text-white"
-                        style="display:none;"></div>
+                <!-- Search Icon (toggle) -->
+                <button id="search-toggle" class="hover:text-yellow-400 hover:scale-120 duration-300">
+                    <i class="ri-search-line "></i>
+                </button>
+
+                <!-- Search Bar -->
+                <div id="search-bar-container"
+                    class="absolute z-10 top-150 left-142 border-3 border-gray-400 w-200 h-20 rounded bg-neutral-900  shadow-lg overflow-hidden flex items-center px-5 py-2 transform scale-y-0 origin-top transition-transform duration-300">
+                    <input type="text" id="search-input" placeholder="Search products..."
+                        class="flex-1 bg-transparent text-white placeholder-gray-400 focus:outline-none" />
+                    <button id="search-close" class="ml-2 text-white hover:text-red-500 duration-300 transition-colors">
+                        <i class="ri-close-line text-4xl"></i>
+                    </button>
                 </div>
+
+                <!-- Search Results -->
+                <div id="search-results"
+                    class="absolute top-171 z-10 left-142 w-200 bg-neutral-800 rounded-b-xl shadow-lg hidden max-h-80 overflow-y-auto">
+                </div>
+
                 <button class="hover:text-yellow-400 hover:scale-120 duration-300"><i
                         class="ri-map-pin-user-fill"></i></button>
                 <button class="hover:text-yellow-400 hover:scale-120 duration-300"><i
@@ -89,14 +82,80 @@
         </div>
     </header>
 
+    <main style="font-family: 'Zalando Sans Expanded', sans-serif;">
+        <h1 class="text-3xl font-light text-white text-center mt-22">OUR GALLERY</h1>
+
+        <section class=" flex items-center justify-center min-h-screen">
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 w-[95%] max-w-8xl">
+
+                <!-- 1. BMW i -->
+                <div class="relative group  h-[700px] overflow-hidden shadow-lg animate-left"
+                    style="animation-duration: 0.6s;">
+                    <img src="https://avtosreda.ru/upload/iblock/18b/18b060dcc4718e8cce447bafd8de7470.jpeg" alt="BMW i"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-white">
+                        <img src="https://logos-world.net/wp-content/uploads/2023/07/BMW-I-Logo-2011.png"
+                            alt="BMW i Logo" class="w-50 mb-4">
+                        <p class=" text-xl  mb-120">BMW i</p>
+                    </div>
+                </div>
 
 
-    <main class=" px-35 py-20" style="font-family: 'SUSE Mono', monospace;">
+                <div class="relative group  h-[700px] overflow-hidden shadow-lg animate-left"
+                    style="animation-duration: 0.8s;">
+                    <img src="https://content-hub.imgix.net/6EdvOg0xLVNdxD6SEjX2Zp/a6a4f6ddda77b14062d431caf7a55f96/the-20legend-20of-20the-20porsche-20carrera-20gt-20a-20classic-20sports-20car-20inspired-20by-20le-20mans-201.jpg?w=1308"
+                        alt="BMW i"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-white">
+                        <img src="https://upload.wikimedia.org/wikipedia/de/thumb/7/70/Porsche_Logo.svg/1533px-Porsche_Logo.svg.png"
+                            alt="BMW i Logo" class="w-21 mb-4">
+                        <p class=" text-xl  mb-120">PORSCHE</p>
+                    </div>
+                </div>
+
+
+                <div class="relative group  h-[700px] overflow-hidden shadow-lg animate-left"
+                    style="animation-duration: 1s;">
+                    <img src="https://f1rst-motors.s3.me-central-1.amazonaws.com/cars/1714775130812-4_614c31bab0.jpg"
+                        alt="BMW i"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-white">
+                        <img src="https://logos-world.net/wp-content/uploads/2021/09/Pagani-Logo.png" alt="BMW i Logo"
+                            class="w-50 mb-4">
+                        <p class=" text-xl  mb-120">PAGANI</p>
+                    </div>
+                </div>
 
 
 
-        <h1 class="text-white text-center text-4xl mt-45">LOADING</h1>
-        <p class="text-gray-400 text-center mt-2">Please wait while we load the content...</p>
+                <div class="relative group  h-[700px] overflow-hidden shadow-lg animate-left"
+                    style="animation-duration: 1.2s;">
+                    <img src="https://images.unsplash.com/photo-1609521233053-345bfa8b6f17?q=80&w=626&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="BMW i"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-white">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Logo.svg/1200px-Mercedes-Logo.svg.png"
+                            alt="BMW i Logo" class="w-29 mb-4">
+                        <p class=" text-xl  mb-120">MERCEDES</p>
+                    </div>
+                </div>
+
+                <div class="relative group  h-[700px] overflow-hidden shadow-lg animate-left"
+                    style="animation-duration: 1.4s;">
+                    <img src="https://images.unsplash.com/photo-1635975236277-9dadc25cc5e2?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="BMW i"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-white">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Bugatti_logo.svg/2414px-Bugatti_logo.svg.png"
+                            alt="BMW i Logo" class="w-50 mb-4">
+                        <p class=" text-xl  mb-120">BUGATTI</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
 
     </main>
 
@@ -106,8 +165,7 @@
             <!-- Logo və info -->
             <div>
                 <h2 class="text-4xl font-bold text-yellow-400 mb-7">La<span class="text-red-600">Ferrari</span></h2>
-                <p class="text-gray-400 mb-9 max-w-xl">We are team of designers and developers who creates high
-                    quality
+                <p class="text-gray-400 mb-9 max-w-xl">We are team of designers and developers who creates high quality
                     premium themes.</p>
                 <ul class="space-y-2 text-gray-300">
                     <li class="flex items-center gap-2">
@@ -197,9 +255,8 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    <script src="./src/addtocart.js"></script>
-    <script src="./src/cartDetail.js"></script>
-    <script src="./src/shopDetail.js"></script>
+    <script src="./src/main.js"></script>
+    <script src="./src/seacrhbarlogicformain.js"></script>
 </body>
 
 </html>
