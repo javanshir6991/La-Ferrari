@@ -427,6 +427,22 @@
 </head>
 
 <body>
+
+    <script>
+        //protect route if u didnt login
+        let user = localStorage.getItem("user");
+        if (!user) {
+            window.location.href = "./login.html";
+        }
+        user = JSON.parse(user);
+        if (user.role !== "user") {
+            window.location.href = "./login.html";
+        }
+        console.log(user);
+        //
+
+    </script>
+
     <div class="container">
         <h1>Checkout</h1>
 
