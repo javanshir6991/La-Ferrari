@@ -173,34 +173,37 @@
         </div>
     </main>
 
-    <footer style="font-family: 'SUSE Mono', monospace;" class="dark border-t border-yellow-400 mt-35 p-35 pb-20">
+    <footer style="font-family: 'SUSE Mono', monospace;"
+        class="dark border-t border-yellow-400 mt-10 sm:mt-20 lg:mt-35 p-6 sm:p-12 lg:p-35 pb-8 sm:pb-12 lg:pb-20">
 
-        <div class="flex justify-between ">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-0">
             <!-- Logo və info -->
-            <div>
-                <h2 class="text-4xl font-bold text-yellow-400 mb-7">La<span class="text-red-600">Ferrari</span></h2>
-                <p class="text-gray-400 mb-9 max-w-xl">We are team of designers and developers who creates high quality
+            <div class="lg:col-span-1">
+                <h2 class="text-3xl sm:text-4xl font-bold text-yellow-400 mb-5 sm:mb-7">La<span
+                        class="text-red-600">Ferrari</span></h2>
+                <p class="text-gray-400 mb-6 sm:mb-9 max-w-xl">We are team of designers and developers who creates high
+                    quality
                     premium themes.</p>
-                <ul class="space-y-2 text-gray-300">
-                    <li class="flex items-center gap-2">
-                        <i class="ri-map-pin-line text-red-500 text-xl"></i>
+                <ul class="space-y-2 text-gray-300 text-sm sm:text-base">
+                    <li class="flex items-start gap-2">
+                        <i class="ri-map-pin-line text-red-500 text-xl flex-shrink-0 mt-1"></i>
                         <span>Address : <span class="font-semibold text-white">No 40 Baria Sreet 133/2, NewYork,
                                 USA.</span></span>
                     </li>
                     <li class="flex items-center gap-2">
-                        <i class="ri-phone-line text-red-500 text-xl"></i>
+                        <i class="ri-phone-line text-red-500 text-xl flex-shrink-0"></i>
                         <span>Phone : <span class="font-semibold text-white">(012) 800 456 789</span></span>
                     </li>
                     <li class="flex items-center gap-2">
-                        <i class="ri-mail-line text-red-500 text-xl"></i>
+                        <i class="ri-mail-line text-red-500 text-xl flex-shrink-0"></i>
                         <span>Email : <span class="font-semibold text-white">support@masstechnologist</span></span>
                     </li>
                 </ul>
             </div>
             <!-- Main Menu -->
-            <div class="border-l border-gray-700 pl-5">
-                <h3 class="text-white font-bold text-lg mb-6">MAIN MENU</h3>
-                <ul class="space-y-5 text-gray-400">
+            <div class="border-l-0 lg:border-l border-gray-700 lg:pl-5">
+                <h3 class="text-white font-bold text-base sm:text-lg mb-4 sm:mb-6">MAIN MENU</h3>
+                <ul class="space-y-3 sm:space-y-5 text-gray-400 text-sm sm:text-base">
                     <li><a href="#" class="hover:text-white">Home</a></li>
                     <li><a href="#" class="hover:text-white">Shop</a></li>
                     <li><a href="#" class="hover:text-white">Featured</a></li>
@@ -209,9 +212,9 @@
                 </ul>
             </div>
             <!-- About Us -->
-            <div class="border-l border-gray-700 pl-5">
-                <h3 class="text-white font-bold text-lg mb-6">ABOUT US</h3>
-                <ul class="space-y-5 text-gray-400">
+            <div class="border-l-0 lg:border-l border-gray-700 lg:pl-5">
+                <h3 class="text-white font-bold text-base sm:text-lg mb-4 sm:mb-6">ABOUT US</h3>
+                <ul class="space-y-3 sm:space-y-5 text-gray-400 text-sm sm:text-base">
                     <li><a href="#" class="hover:text-white">Contact US</a></li>
                     <li><a href="#" class="hover:text-white">Refund Policy</a></li>
                     <li><a href="#" class="hover:text-white">Shipping Policy</a></li>
@@ -220,9 +223,9 @@
                 </ul>
             </div>
             <!-- Need Help -->
-            <div class="border-l border-gray-700 pl-5">
-                <h3 class="text-white font-bold text-lg mb-6">NEED HELP</h3>
-                <ul class="space-y-5 text-gray-400">
+            <div class="border-l-0 lg:border-l border-gray-700 lg:pl-5">
+                <h3 class="text-white font-bold text-base sm:text-lg mb-4 sm:mb-6">NEED HELP</h3>
+                <ul class="space-y-3 sm:space-y-5 text-gray-400 text-sm sm:text-base">
                     <li><a href="#" class="hover:text-white">Search</a></li>
                     <li><a href="#" class="hover:text-white">About Us</a></li>
                     <li><a href="#" class="hover:text-white">FAQs</a></li>
@@ -231,9 +234,9 @@
                 </ul>
             </div>
             <!-- About Us (2-ci sütun) -->
-            <div class="border-l border-gray-700 pl-5">
-                <h3 class="text-white font-bold text-lg mb-6">ABOUT US</h3>
-                <ul class="space-y-5 text-gray-400">
+            <div class="border-l-0 lg:border-l border-gray-700 lg:pl-5">
+                <h3 class="text-white font-bold text-base sm:text-lg mb-4 sm:mb-6">ABOUT US</h3>
+                <ul class="space-y-3 sm:space-y-5 text-gray-400 text-sm sm:text-base">
                     <li><a href="#" class="hover:text-white">Contact US</a></li>
                     <li><a href="#" class="hover:text-white">Refund Policy</a></li>
                     <li><a href="#" class="hover:text-white">Shipping Policy</a></li>
@@ -244,24 +247,35 @@
         </div>
 
         <!-- Copyright və sosial media -->
-        <div class="flex flex-wrap justify-between items-center mt-14 border-t border-gray-700 pt-14">
-            <span class="text-gray-400 text-lg">Copyright © 2024 <span
+        <div
+            class="flex flex-col sm:flex-row flex-wrap justify-between items-center gap-6 sm:gap-4 mt-8 sm:mt-12 lg:mt-14 border-t border-gray-700 pt-8 sm:pt-12 lg:pt-14">
+            <span class="text-gray-400 text-sm sm:text-base lg:text-lg text-center sm:text-left">Copyright © 2024 <span
                     class="text-red-500">MassTechnologist.Com.</span></span>
-            <div class="flex items-center gap-6">
-                <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="ri-facebook-fill"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="ri-twitter-fill"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="ri-pinterest-fill"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="ri-google-fill"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="ri-instagram-line"></i></a>
+            <div class="flex items-center gap-4 sm:gap-6">
+                <a href="#" class="text-gray-400 hover:text-white text-xl sm:text-2xl"><i
+                        class="ri-facebook-fill"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white text-xl sm:text-2xl"><i
+                        class="ri-twitter-fill"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white text-xl sm:text-2xl"><i
+                        class="ri-pinterest-fill"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white text-xl sm:text-2xl"><i
+                        class="ri-google-fill"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white text-xl sm:text-2xl"><i
+                        class="ri-instagram-line"></i></a>
             </div>
-            <div class="flex items-center gap-6">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-7">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-7">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-7">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-7">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-7">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-7">
-
+            <div class="flex items-center gap-3 sm:gap-4 lg:gap-6 flex-wrap justify-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa"
+                    class="h-5 sm:h-6 lg:h-7">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa"
+                    class="h-5 sm:h-6 lg:h-7">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa"
+                    class="h-5 sm:h-6 lg:h-7">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa"
+                    class="h-5 sm:h-6 lg:h-7">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa"
+                    class="h-5 sm:h-6 lg:h-7">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa"
+                    class="h-5 sm:h-6 lg:h-7">
             </div>
         </div>
 
