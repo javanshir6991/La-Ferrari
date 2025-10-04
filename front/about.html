@@ -22,35 +22,45 @@
 <body class="bg-black">
     <header>
         <div style="font-family: 'SUSE Mono', monospace;" class="relative">
-            <img class="w-full h-[500px] object-cover"
+            <img class="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover"
                 src="https://images.hdqwalls.com/download/mclaren-p1-gtr-4k-sc-1920x1080.jpg" alt="">
-            <h1 class="absolute text-white text-6xl font-bold top-11 left-210 fade-in">About-Us</h1>
-            <p class="absolute text-gray-300 text-xl top-28 left-222 fade-in">Home / About Us</p>
+            <h1
+                class="absolute text-white text-3xl sm:text-4xl lg:text-6xl font-bold top-6 sm:top-8 lg:top-11 left-4 sm:left-20 lg:left-210 fade-in">
+                About-Us</h1>
+            <p
+                class="absolute text-gray-300 text-sm sm:text-lg lg:text-xl top-16 sm:top-20 lg:top-28 left-4 sm:left-20 lg:left-222 fade-in">
+                Home / About Us</p>
         </div>
 
-        <div class="dark px-15 py-5 flex items-center justify-between" style="font-family: 'SUSE Mono', monospace;">
+        <div class="dark px-4 sm:px-8 lg:px-15 py-5 flex items-center justify-between relative"
+            style="font-family: 'SUSE Mono', monospace;">
             <div class="flex items-center">
-                <h1 class="text-yellow-400 font-bold text-4xl">La</h1>
-                <h1 class="text-red-600 font-bold text-4xl">Ferrari</h1>
+                <h1 class="text-yellow-400 font-bold text-2xl sm:text-3xl lg:text-4xl">La</h1>
+                <h1 class="text-red-600 font-bold text-2xl sm:text-3xl lg:text-4xl">Ferrari</h1>
             </div>
 
-            <div class="hrefs flex items-center gap-10">
-                <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle"
+                class="lg:hidden text-white text-2xl hover:text-yellow-400 duration-300 z-50">
+                <i class="ri-menu-line"></i>
+            </button>
+
+            <div class="hrefs hidden lg:flex items-center gap-6 xl:gap-10">
+                <a class="text-white font-semibold text-lg xl:text-xl hover:text-yellow-400 hover:scale-110 duration-300"
                     href="./index.html">HOME</a>
-                <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+                <a class="text-white font-semibold text-lg xl:text-xl hover:text-yellow-400 hover:scale-110 duration-300"
                     href="./shop.html">SHOP</a>
-                <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+                <a class="text-white font-semibold text-lg xl:text-xl hover:text-yellow-400 hover:scale-110 duration-300"
                     href="./contact.html">CONTACT</a>
-                <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+                <a class="text-white font-semibold text-lg xl:text-xl hover:text-yellow-400 hover:scale-110 duration-300"
                     href="./service.html">SERVICES</a>
-                <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+                <a class="text-white font-semibold text-lg xl:text-xl hover:text-yellow-400 hover:scale-110 duration-300"
                     href="./gallery.html">GALLERY</a>
-                <a class="text-white font-semibold text-xl hover:text-yellow-400 hover:scale-110 duration-300"
+                <a class="text-white font-semibold text-lg xl:text-xl hover:text-yellow-400 hover:scale-110 duration-300"
                     href="./about.html">ABOUT</a>
-
             </div>
 
-            <div class="buttons text-white text-2xl flex items-center gap-7">
+            <div class="buttons text-white text-xl sm:text-2xl hidden sm:flex items-center gap-4 lg:gap-7">
                 <!-- Search Icon (toggle) -->
                 <button id="search-toggle" class="hover:text-yellow-400 hover:scale-120 duration-300">
                     <i class="ri-search-line "></i>
@@ -58,18 +68,19 @@
 
                 <!-- Search Bar -->
                 <div id="search-bar-container"
-                    class="absolute z-10 top-150 left-142 border-3 border-gray-400 w-200 h-20 rounded bg-neutral-900  shadow-lg overflow-hidden flex items-center px-5 py-2 transform scale-y-0 origin-top transition-transform duration-300">
+                    class="absolute z-10 top-20 left-1/2 -translate-x-1/2 sm:left-auto sm:right-8 sm:translate-x-0 lg:left-142 border-3 border-gray-400 w-11/12 sm:w-96 lg:w-200 h-20 rounded bg-neutral-900 shadow-lg overflow-hidden flex items-center px-5 py-2 transform scale-y-0 origin-top transition-transform duration-300">
                     <input type="text" id="search-input" placeholder="Search products..."
                         class="flex-1 bg-transparent text-white placeholder-gray-400 focus:outline-none" />
                     <button id="search-close" class="ml-2 text-white hover:text-red-500 duration-300 transition-colors">
-                        <i class="ri-close-line text-4xl"></i>
+                        <i class="ri-close-line text-3xl lg:text-4xl"></i>
                     </button>
                 </div>
 
                 <!-- Search Results -->
                 <div id="search-results"
-                    class="absolute top-171 z-10 left-142 w-200 bg-neutral-800 rounded-b-xl shadow-lg hidden max-h-80 overflow-y-auto">
+                    class="absolute top-40 z-10 left-1/2 -translate-x-1/2 sm:left-auto sm:right-8 sm:translate-x-0 lg:left-142 lg:top-171 w-11/12 sm:w-96 lg:w-200 bg-neutral-800 rounded-b-xl shadow-lg hidden max-h-80 overflow-y-auto">
                 </div>
+
                 <a href="./login.html"><button class="hover:text-yellow-400 hover:scale-120 duration-300"><i
                             class="ri-map-pin-user-fill"></i></button></a>
 
@@ -81,6 +92,43 @@
                             class="ri-shopping-bag-line"></i></button></a>
             </div>
 
+            <!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="lg:hidden fixed top-0 left-0 w-full h-screen bg-neutral-900 transform -translate-x-full transition-transform duration-300 z-40">
+                <div class="flex flex-col px-6 py-20 gap-4">
+                    <a class="text-white font-semibold text-lg hover:text-yellow-400 duration-300 py-3 border-b border-gray-700"
+                        href="./index.html">HOME</a>
+                    <a class="text-white font-semibold text-lg hover:text-yellow-400 duration-300 py-3 border-b border-gray-700"
+                        href="./shop.html">SHOP</a>
+                    <a class="text-white font-semibold text-lg hover:text-yellow-400 duration-300 py-3 border-b border-gray-700"
+                        href="./contact.html">CONTACT</a>
+                    <a class="text-white font-semibold text-lg hover:text-yellow-400 duration-300 py-3 border-b border-gray-700"
+                        href="./service.html">SERVICES</a>
+                    <a class="text-white font-semibold text-lg hover:text-yellow-400 duration-300 py-3 border-b border-gray-700"
+                        href="./gallery.html">GALLERY</a>
+                    <a class="text-white font-semibold text-lg hover:text-yellow-400 duration-300 py-3 border-b border-gray-700"
+                        href="./about.html">ABOUT</a>
+
+                    <div class="flex items-center justify-center gap-6 pt-6 text-2xl text-white">
+                        <button id="mobile-search-toggle" class="hover:text-yellow-400 duration-300">
+                            <i class="ri-search-line"></i>
+                        </button>
+                        <a href="./login.html">
+                            <button class="hover:text-yellow-400 duration-300">
+                                <i class="ri-map-pin-user-fill"></i>
+                            </button>
+                        </a>
+                        <button onclick="alert('Not available yet...')" class="hover:text-yellow-400 duration-300">
+                            <i class="ri-earth-line"></i>
+                        </button>
+                        <a href="./shop.html">
+                            <button class="hover:text-yellow-400 duration-300">
+                                <i class="ri-shopping-bag-line"></i>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -260,7 +308,56 @@
 
     </footer>
 
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let menuOpen = false;
 
+        if (mobileMenuToggle && mobileMenu) {
+            mobileMenuToggle.addEventListener('click', () => {
+                menuOpen = !menuOpen;
+                if (menuOpen) {
+                    mobileMenu.style.transform = 'translateX(0)';
+                    mobileMenuToggle.querySelector('i').classList.replace('ri-menu-line', 'ri-close-line');
+                } else {
+                    mobileMenu.style.transform = 'translateX(-100%)';
+                    mobileMenuToggle.querySelector('i').classList.replace('ri-close-line', 'ri-menu-line');
+                }
+            });
+        }
+
+        // Desktop search toggle
+        const searchToggle = document.getElementById('search-toggle');
+        const searchBarContainer = document.getElementById('search-bar-container');
+        const searchClose = document.getElementById('search-close');
+
+        if (searchToggle && searchBarContainer && searchClose) {
+            searchToggle.addEventListener('click', () => {
+                searchBarContainer.classList.toggle('scale-y-0');
+                searchBarContainer.classList.toggle('scale-y-100');
+            });
+
+            searchClose.addEventListener('click', () => {
+                searchBarContainer.classList.remove('scale-y-100');
+                searchBarContainer.classList.add('scale-y-0');
+            });
+        }
+
+        // Mobile search toggle
+        const mobileSearchToggle = document.getElementById('mobile-search-toggle');
+        if (mobileSearchToggle && searchBarContainer) {
+            mobileSearchToggle.addEventListener('click', () => {
+                searchBarContainer.classList.toggle('scale-y-0');
+                searchBarContainer.classList.toggle('scale-y-100');
+                if (menuOpen) {
+                    mobileMenu.style.transform = 'translateX(-100%)';
+                    mobileMenuToggle.querySelector('i').classList.replace('ri-close-line', 'ri-menu-line');
+                    menuOpen = false;
+                }
+            });
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="./src/main.js"></script>
     <script src="./src/seacrhbarlogicformain.js"></script>

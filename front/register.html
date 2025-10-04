@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Strapi Auth Demo</title>
+    <link rel="stylesheet" href="./src/login.css">
+</head>
+
+<body>
+    <div class="speed-lines"></div>
+    <div class="speed-lines"></div>
+    <div class="speed-lines"></div>
+
+    <div class="container">
+        <h2>Register</h2>
+        <input type="text" id="reg-username" placeholder="Username" required>
+        <input type="email" id="reg-email" placeholder="Email" required>
+        <input type="password" id="reg-password" placeholder="Password" required>
+        <button onclick="registerUser()">Register</button>
+
+
+
+        <div class="message" id="message"></div>
+        <button style="border: none; background: none; color: white; cursor: pointer;"
+            onclick="location.href='./login.html'">Already have an account? Login</button>
+    </div>
+
+    <script src="./src/auth.js"></script>
+</body>
+
+</html>

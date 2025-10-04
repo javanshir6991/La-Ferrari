@@ -13,11 +13,7 @@
     <div class="speed-lines"></div>
 
     <div class="container">
-        <h2>Register</h2>
-        <input type="text" id="reg-username" placeholder="Username" required>
-        <input type="email" id="reg-email" placeholder="Email" required>
-        <input type="password" id="reg-password" placeholder="Password" required>
-        <button onclick="registerUser()">Register</button>
+
 
         <h2>Login</h2>
         <input type="text" id="login-identifier" placeholder="Email or Username" required>
@@ -25,8 +21,17 @@
         <button onclick="loginUser()">Login</button>
 
         <div class="message" id="message"></div>
-    </div>
+        <button style="border: none; background: none; color: white; cursor: pointer;"
+            onclick="location.href='./register.html'">Don't have an account?
+            Register</button>
 
+    </div>
+    <script>
+        //after login, redirect to shop.html
+        if (localStorage.getItem('token')) {
+            window.location.href = './checkout.html';
+        }
+    </script>
     <script src="./src/auth.js"></script>
 </body>
 
